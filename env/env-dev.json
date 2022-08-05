@@ -1,0 +1,8 @@
+{
+    "InsightProcessor": {
+        "Envir":"dev",
+        "Debug":"false",
+        "PublishTopicArn": "arn:aws:sns:us-west-2:111111111111:OutboundSNSTopic",
+        "PublishToSns": "false"
+    }
+}

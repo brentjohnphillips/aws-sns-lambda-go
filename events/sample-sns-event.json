@@ -1,0 +1,22 @@
+{
+    "Records": [
+        {
+            "EventVersion": "1.0",
+            "EventSubscriptionArn": "arn:aws:sns:us-west-2:111111111111:InboundSNSTopic:11111111-1111-1111-1111-111111111111",
+            "EventSource": "aws:sns",
+            "Sns": {
+                "Signature": "xxx",
+                "MessageId": "11111111-1111-1111-1111-111111111111",
+                "Type": "Notification",
+                "TopicArn": "arn:aws:sns:us-west-2:111111111111:InboundSNSTopic",
+                "MessageAttributes": {},
+                "SignatureVersion": "1",
+                "Timestamp": "2022-08-05T01:15:49.744Z",
+                "SigningCertUrl": "",
+                "Message": "{ \"version\": \"0\", \"id\": \"11111111-1111-1111-1111-111111111111\", \"detail-type\": \"AWS X-Ray Insight Update\", \"source\": \"aws.xray\", \"detail\": { \"InsightId\": \"11111111-1111-1111-1111-111111111111\", \"ClientRequestImpactStatistics\": { \"FaultCount\": 412, \"OkCount\": 456, \"TotalCount\": 868 } } }",
+                "UnsubscribeUrl": "",
+                "Subject": ""
+            }
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  AWS Lambda GoLang SNS processor
+  
+  Lambda for processing incoming SNS and sending out an SNS message in GoLang
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Runtime: go1.x
+    Timeout: 60
+    MemorySize: 256
+    Handler: main
+    Environment: 
+        Variables:
+          Envir: local    
+Resources:
+  SnsProcessor:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: handlers/SnsProcessor
+      Tracing: Active # https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html
+      Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+        Variables:          
+          Debug: "false"
+          PublishTopicArn : "arn:aws:sns:us-west-2:111111111111:OutboundSNSTopic"
+          PublishToSns: "true"
+  SnsDebugger:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: handlers/SnsDebugger
+Outputs:
+  InsightProcessor:
+    Description: "First Lambda Function ARN"
+    Value: !GetAtt SnsProcessor.Arn
